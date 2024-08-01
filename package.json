@@ -1,23 +1,28 @@
 {
-  "name": "ost-blog-backend",
-  "version": "1.0.0",
-  "description": "back end api server for OST blog",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AtoM-84/ost-blog-backend.git"
-  },
-  "author": "Louise Lelièvre",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/AtoM-84/ost-blog-backend/issues"
-  },
-  "homepage": "https://github.com/AtoM-84/ost-blog-backend#readme",
-  "dependencies": {
-    "express": "^4.19.2",
-    "pg": "^8.12.0"
-  }
+    "name": "ost-blog-backend",
+    "version": "1.0.0",
+    "description": "back end api server for OST blog",
+    "type": "module",
+    "main": "server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/AtoM-84/ost-blog-backend.git"
+    },
+    "author": "Louise Lelièvre",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/AtoM-84/ost-blog-backend/issues"
+    },
+    "homepage": "https://github.com/AtoM-84/ost-blog-backend#readme",
+    "dependencies": {
+        "dotenv": "^16.4.5",
+        "express": "^4.19.2",
+        "pg": "^8.12.0"
+    },
+    "devDependencies": {
+        "@types/express": "^4.17.21"
+    }
 }
