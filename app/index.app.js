@@ -1,7 +1,13 @@
-import express from 'express';
-import router from './routers/router.js'
+import express from "express";
+import router from "./routers/router.js";
+
+import { connection } from "./db/database.js";
 
 const app = express();
 
-app.use(router)
+// const query = connection.from("post");
+// const rows = await query.where({ id: 2 });
+// console.log(rows);
+
+app.use(router);
 export default app;
