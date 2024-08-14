@@ -64,7 +64,7 @@ class BaseDatamapper {
     const whereStatement = changeKeys.snakeCase(params?.where);
     const orWhereStatement = changeKeys.snakeCase(params?.orWhere);
     const andWhereStatement = changeKeys.snakeCase(params?.andWhere);
-    console.log(whereStatement)
+
     const query = this.client.from(this.tableName);
 
     if (where) query.where(whereStatement);
@@ -79,9 +79,9 @@ class BaseDatamapper {
     );
 
     const rows = await query;
-    // const camelCasedRow = rows.map((row) => changeKeys.camelCase(row));
+    const camelCasedRow = rows.map((row) => changeKeys.camelCase(row));
 
-    // return await camelCasedRow;
+    return await camelCasedRow;
     return rows;
   }
 
