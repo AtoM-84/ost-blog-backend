@@ -43,6 +43,10 @@ class Post extends BaseDatamapper {
         })
     }
 
+    async getPostsRaw() {
+        const rows = await this.client.raw(`SELECT * FROM ${this.tableName} LEFT JOIN post_has_author ON post_has_author.post_id = post.id WHERE author_id = 4`)
+        return rows;
+    }
     // async getPostsByPopularity() {
 
     // }
