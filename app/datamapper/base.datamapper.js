@@ -59,17 +59,15 @@ class BaseDatamapper {
    */
   async findAll(params) {
 
-    console.log(params)
+    const where = changeKeys.snakeCase(params?.where);
+    const orWhere = changeKeys.snakeCase(params?.orWhere);
+    const andWhere = changeKeys.snakeCase(params?.andWhere);
 
-    const whereStatement = changeKeys.snakeCase(params?.where);
-    const orWhereStatement = changeKeys.snakeCase(params?.orWhere);
-    const andWhereStatement = changeKeys.snakeCase(params?.andWhere);
+    const query = this.client.select().from(this.tableName);
 
-    const query = this.client.from(this.tableName);
-
-    if (where) query.where(whereStatement);
-    if (orWhere) query.orWhere(orWhereStatement);
-    if (andWhere) query.andWhere(andWhereStatement);
+    if (where) query.where(where);
+    if (orWhere) query.orWhere(orWhere);
+    if (andWhere) query.andWhere(andWhere);
 
     if (params?.limit) query.limit(params.limit);
     if (params?.offset) query.offset(params.offset);
@@ -79,9 +77,9 @@ class BaseDatamapper {
     );
 
     const rows = await query;
-    const camelCasedRow = rows.map((row) => changeKeys.camelCase(row));
 
-    return await camelCasedRow;
+    // const camelCasedRow = rows.map((row) => changeKeys.camelCase(row));
+    // return await camelCasedRow;
     return rows;
   }
 

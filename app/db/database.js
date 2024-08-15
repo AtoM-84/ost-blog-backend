@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import knex from 'knex';
 
-export const connection = knex({
+export const connectionDB = knex({
   client: 'pg',
   connection: {
     host: process.env.PG_HOST || 'localhost',
