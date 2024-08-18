@@ -1,0 +1,7 @@
+BEGIN; 
+
+ALTER TABLE post
+ADD illustration TEXT UNIQUE;
+
+COMMIT;
+

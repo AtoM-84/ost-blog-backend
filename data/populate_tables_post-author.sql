@@ -1,5 +1,6 @@
 BEGIN;
 
+
 -- 1 post --
 INSERT INTO "post" ("title", "sub_title", "created_at", "updated_at", "content") VALUES
 ('Advances in Topology research with AI training', 'Predictability of trafic patterns allows for cost effective and optimized network topologies', '20240721', '20240729', 
