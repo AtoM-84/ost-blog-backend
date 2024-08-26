@@ -2,15 +2,8 @@
 -- Schemas OST blog
 -- -----------------------------------------------------
 
-
 BEGIN;
--- Note : BEGIN déclare le début d'une transaction : un groupe d'instructions SQL qui rend celles-ci dépendantes les unes des autres. 
--- Si au moins une des instructions génère une erreur, alors toutes les commandes sont invalidées.
 
-
--- Comme c'est un script de création de tables, on s'assure que celles-ci sont bien supprimées avant de les créer. 
--- On peut supprimer plusieurs tables en même temps
--- Note : attention à ne pas lancer ce script en production en revanche :wink:
 DROP TABLE IF EXISTS "post",
 "tag",
 "author",
@@ -29,19 +22,6 @@ CREATE TABLE "post" (
   "created_at" TIMESTAMPTZ DEFAULT NOW(), -- Date où l'on insère un enregistrement dans la base
   "updated_at" TIMESTAMPTZ
 );
-
-/*
-Notes :
-  - id : 
-    - La clé primaire est automatiquement NOT NULL. Pas besoin de le préciser.
-    - On spécifie que la colonne sera générée automatiquement par la BDD en suivant une séquence numérique prédéfinie, s'incrémentant de 1 en 1.
-    - On peut définir 'BY DEFAULT' (surcharge de la valeur possible) ou 'ALWAYS' (surcharge de la valeur impossible)
-    - Ici on utilise BY DEFAULT, car on définit nous même les valeurs des clés primaires (dans le fichier de seeding).
-    - Mais on utilisera plus généralement ALWAYS afin de sécurisé l'incrémentation des valeurs du champ
-  - created_at 
-    - CURRENT_TIMESTAMP : on peut aussi utiliser now()
-*/
-
 
 -- -----------------------------------------------------
 -- Table "tag"
@@ -72,7 +52,6 @@ CREATE TABLE "comment" (
   "author_id" INTEGER NOT NULL REFERENCES "author"("id"),
   UNIQUE ("post_id", "author_id")
 );
--- UNIQUE créé une contrainte sur le couple sheet_id/tag_id qui doit alors être unique au sein de la BDD. 
 
 -- -----------------------------------------------------
 -- Table "post_has_tag"
@@ -83,7 +62,6 @@ CREATE TABLE "post_has_tag" (
   "tag_id" INTEGER NOT NULL REFERENCES "tag"("id") ON DELETE CASCADE,
   UNIQUE ("post_id", "tag_id")
 );
--- ON DELETE CASCADE permet de supprimer les entrées de la table si l'entrée référencée est supprimée dans la table parente
 
 -- -----------------------------------------------------
 -- Table "post_has_author"

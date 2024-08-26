@@ -18,7 +18,6 @@ class BaseDatamapper {
 
   /* Methods */
 
-
   /**
    * count
    * @summary Count the number of items existing in a table
