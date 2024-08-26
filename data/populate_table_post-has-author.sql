@@ -1,15 +1,15 @@
 BEGIN;
 
 INSERT INTO "post_has_author" ("post_id", "author_id") VALUES
-('5','3');
+('1','1');
 
 INSERT INTO "post_has_author" ("post_id", "author_id") VALUES
-('6','3');
+('2','1');
 
 INSERT INTO "post_has_author" ("post_id", "author_id") VALUES
-('6','4');
+('2','2');
 
 INSERT INTO "post_has_author" ("post_id", "author_id") VALUES
-('7','4');
+('3','2');
 
 COMMIT;
