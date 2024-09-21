@@ -43,9 +43,9 @@ class BaseDatamapper {
     const row = await this.client.from(this.tableName)
       .where({ [snake_key]: value })
       .first();
-
+    console.log(row);
     const CamelCasedRow = changeKeys.camelCase(row);
-
+    console.log(CamelCasedRow);
     return await CamelCasedRow;
 
   }

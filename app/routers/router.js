@@ -13,7 +13,7 @@ router.get('/blog/', controllerHandler(blogController.blogList))
 // router.get('/blog/:blogPage', controllerHandler(blogController.blogList))
 // router.get('/blog/asc/:blogPage', controllerHandler(blogController.blogList)) 
 // router.get('/blog/author/:author/:blogPage', controllerHandler()) // use getByAuthor in datamapper
-// router.get('/blog/item/:postId', controllerHandler(blogController.blogItem)) // use findByKey in datamapper
+router.get('/blog/post/:postId', controllerHandler(blogController.blogPost)) // use findByKey in datamapper
 
 router.use((req, res, next) => {
         res.status(404).json({ error: 'Page not found.' });

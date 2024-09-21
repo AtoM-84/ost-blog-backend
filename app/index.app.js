@@ -5,7 +5,7 @@ import cors from 'cors';
 const app = express();
 
 app.use(cors({
-    origin: 'https://ost-static-react-production.up.railway.app',
+    origin: 'http://localhost:5173',
     credentials: true,
   }));
 app.use(router);
