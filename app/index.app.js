@@ -5,7 +5,7 @@ import cors from 'cors';
 const app = express();
 
 app.use(cors({
-    origin: 'http://ost-static-react.railway.internal',
+    origin: 'https://ost-static-react.railway.internal',
     credentials: true,
   }));
 app.use(router);
